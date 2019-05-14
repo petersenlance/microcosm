@@ -1,15 +1,44 @@
 defmodule Microcosm.Game do
-  def play() do
-    0..9
+  use GenServer
+
+  def start_link(args) do
+    GenServer.start_link(__MODULE__, args, name: GameServer)
+  end
+
+  @impl true
+  def init(_) do
+    {:ok, %{board: initial_board()}}
+  end
+
+  def start_game() do
+    GenServer.call(GameServer, :start_game)
+  end
+
+  def next_step() do
+    GenServer.call(GameServer, :next_step)
+  end
+
+  @impl true
+  def handle_call(:start_game, _from, state) do
+    new_board = initial_board()
+    {:reply, new_board, %{state | board: new_board}}
+  end
+
+  @impl true
+  def handle_call(:next_step, _from, state) do
+    new_board = _next_board(state.board)
+    {:reply, new_board, %{state | board: new_board}}
+  end
+
+  def initial_board() do
+    0..69
     |> Enum.map(fn row_num ->
-      0..9
+      0..99
       |> Enum.map(fn col_num ->
         {row_num, col_num, 0}
       end)
     end)
     |> randomize_board()
-    |> IO.inspect(label: "initialized board")
-    |> _play_loop()
   end
 
   def randomize_board(board) do
@@ -17,7 +46,7 @@ defmodule Microcosm.Game do
     |> Enum.map(fn row ->
       row
       |> Enum.map(fn {row_num, col_num, _} ->
-        case :rand.uniform() > 0.5 do
+        case :rand.uniform() > 0.09 do
           true -> {row_num, col_num, 0}
           false -> {row_num, col_num, 1}
         end
@@ -25,7 +54,7 @@ defmodule Microcosm.Game do
     end)
   end
 
-  defp _play_loop(board) do
+  defp _next_board(board) do
     board
     |> Enum.map(fn row ->
       row
@@ -47,8 +76,6 @@ defmodule Microcosm.Game do
           end
       end)
     end)
-    |> _print_board()
-    |> _play_loop()
   end
 
   def count_live_neighbors(board, row, col) do

@@ -1,0 +1,26 @@
+<h2><%= gettext "Welcome to %{name}!", name: "The Game of Life" %></h2>
+<div style="text-align: center">
+    <a href="http://127.0.0.1:4000/start">
+        <button style="background-color: black">Restart</button>
+    </a>
+    <a href="http://127.0.0.1:4000/next">
+        <button style="background-color: black">Next</button>
+    </a>
+</div>
+        <table>
+            <%=
+            @board
+            |> Enum.map(fn list -> %>
+                <tr style="height: 1px;">
+                    <%= list
+                    |> Enum.map(fn {_, _, val} -> %>
+                        <%= case val do %>
+                            <% 1 -> %>
+                                <td style="background-color: green; padding: 5px; margin: 5px;"></td>
+                     <% 0 -> %>
+                     <td style="background-color: white; padding: 5px; margin: 5px"></td>
+                     <% end %>
+                     <% end) %>
+             </tr>
+         <% end) %>
+         </table>

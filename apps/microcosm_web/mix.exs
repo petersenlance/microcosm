@@ -42,6 +42,7 @@ defmodule MicrocosmWeb.MixProject do
       {:phoenix_ecto, "~> 3.2"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.0", only: :dev},
+      {:plug_cowboy, "~> 1.0"},
       {:gettext, "~> 0.11"},
       {:microcosm, in_umbrella: true},
       {:jason, "~> 1.0"},

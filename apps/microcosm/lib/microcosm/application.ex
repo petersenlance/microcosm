@@ -7,7 +7,8 @@ defmodule Microcosm.Application do
 
   def start(_type, _args) do
     children = [
-      Microcosm.Repo
+      Microcosm.Repo,
+      {Microcosm.Game, []}
     ]
 
     Supervisor.start_link(children, strategy: :one_for_one, name: Microcosm.Supervisor)

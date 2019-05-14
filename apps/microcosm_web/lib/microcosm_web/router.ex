@@ -14,13 +14,11 @@ defmodule MicrocosmWeb.Router do
   end
 
   scope "/", MicrocosmWeb do
-    pipe_through :browser # Use the default browser stack
+    # Use the default browser stack
+    pipe_through :browser
 
+    get "/start", GameController, :start
+    get "/next", GameController, :next_step
     get "/", PageController, :index
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", MicrocosmWeb do
-  #   pipe_through :api
-  # end
 end
