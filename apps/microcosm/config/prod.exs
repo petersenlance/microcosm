@@ -9,4 +9,3 @@ config :microcosm, Microcosm.Repo,
   password: "postgres",
   database: "microcosm_prod",
   pool_size: 15
-# import_config "prod.secret.exs"

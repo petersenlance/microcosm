@@ -69,4 +69,5 @@ config :microcosm_web, MicrocosmWeb.Endpoint,
 
 # Finally import the config/prod.secret.exs which should be versioned
 # separately.
-import_config "prod.secret.exs"
+config :microcosm_web, MicrocosmWeb.Endpoint,
+  secret_key_base: "YWfv9JEEiZufTBxsOejLEgRYWZCujUfRxJB+WB0oTKCie6dR3JggUQBvtsEbQA8V"
