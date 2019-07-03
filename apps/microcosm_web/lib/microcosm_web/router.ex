@@ -5,6 +5,7 @@ defmodule MicrocosmWeb.Router do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
+    plug Phoenix.LiveView.Flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
@@ -17,6 +18,7 @@ defmodule MicrocosmWeb.Router do
     # Use the default browser stack
     pipe_through :browser
 
+    get "/live", LiveGameController, :game
     get "/start", GameController, :start
     get "/next", GameController, :next_step
     get "/", PageController, :index

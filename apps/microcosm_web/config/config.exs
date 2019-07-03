@@ -14,7 +14,10 @@ config :microcosm_web, MicrocosmWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "yEGIpuJQvphxIsUwah1vhVs5JC1USSJHqQztGT++xvdMeT2/zH/aBv6XiKPyA4MM",
   render_errors: [view: MicrocosmWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: MicrocosmWeb.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: MicrocosmWeb.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "gQJsaYLq81mkjg8fKVikNT5So0zCQgA0"
+  ]
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
