@@ -31,9 +31,9 @@ defmodule Microcosm.Game do
   end
 
   def initial_board() do
-    0..69
+    0..99
     |> Enum.map(fn row_num ->
-      0..99
+      0..109
       |> Enum.map(fn col_num ->
         {row_num, col_num, 0}
       end)

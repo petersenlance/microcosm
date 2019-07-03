@@ -55,6 +55,7 @@ config :microcosm_web, MicrocosmWeb.Endpoint,
       ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/microcosm_web/views/.*(ex)$},
-      ~r{lib/microcosm_web/templates/.*(eex)$}
+      ~r{lib/microcosm_web/templates/.*(eex)$},
+      ~r{lib/microcosm_web/live/.*(ex)$}
     ]
   ]
