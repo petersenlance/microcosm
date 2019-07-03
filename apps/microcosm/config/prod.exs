@@ -4,4 +4,9 @@
 # the umbrella root.
 use Mix.Config
 
-import_config "prod.secret.exs"
+config :microcosm, Microcosm.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "microcosm_prod",
+  pool_size: 15
+# import_config "prod.secret.exs"
