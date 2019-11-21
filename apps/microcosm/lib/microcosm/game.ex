@@ -7,7 +7,7 @@ defmodule Microcosm.Game do
 
   @impl true
   def init(_) do
-    species =  %{1 => %{color: "blue"}}
+    species = %{1 => %{color: "blue"}}
     {:ok, %{board: initial_board(species), species: species}}
   end
 
@@ -37,6 +37,7 @@ defmodule Microcosm.Game do
       1 => %{color: "blue"},
       2 => %{color: "yellow"}
     }
+
     # [
     #   [id: 1, color: "blue"],
     #   [id: 2, color: "yellow"]
@@ -60,10 +61,12 @@ defmodule Microcosm.Game do
       row
       |> Enum.map(fn {row_num, col_num, _} ->
         case :rand.uniform() > 0.09 do
-          true -> {row_num, col_num, 0}
+          true ->
+            {row_num, col_num, 0}
+
           false ->
             s = species |> Enum.random() |> elem(0)
-          {row_num, col_num, s}
+            {row_num, col_num, s}
         end
       end)
     end)
@@ -79,7 +82,9 @@ defmodule Microcosm.Game do
             3 ->
               s = species |> Enum.random() |> elem(0)
               {r, c, s}
-            _ -> {r, c, 0}
+
+            _ ->
+              {r, c, 0}
           end
 
         {r, c, s_id} ->

@@ -19,6 +19,5 @@ defmodule Microcosm.Rules do
   end
 
   defp _evaluate(rules, board, row, col) do
-    
   end
 end

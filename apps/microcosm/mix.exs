@@ -36,7 +36,7 @@ defmodule Microcosm.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
+      {:phoenix_live_view, "~> 0.4"},
       {:postgrex, ">= 0.0.0"},
       {:ecto, "~> 2.2"}
     ]
