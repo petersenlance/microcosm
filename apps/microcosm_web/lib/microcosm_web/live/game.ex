@@ -2,8 +2,6 @@ defmodule MicrocosmWeb.LiveGameController do
   use MicrocosmWeb, :controller
 
   def game(conn, _) do
-    IO.inspect("hi", label: "In the live-view controller")
-
     live_render(conn, MicrocosmWeb.LiveGameView, session: %{})
   end
 end
@@ -33,11 +31,16 @@ defmodule MicrocosmWeb.LiveGameView do
     <tr style="height: 1px;">
     <%= list
     |> Enum.map(fn {_, _, val} -> %>
+    <%= IO.inspect(val, label: "the value here")%>
     <%= case val do %>
-    <% 1 -> %>
-    <td style="background-color: green; padding: 5px; margin: 5px;"></td>
-    <% 0 -> %>
-    <td style="background-color: black; padding: 5px; margin: 5px"></td>
+      <% 0 -> %>
+        <td style="background-color: black; padding: 5px; margin: 5px;"></td>
+      <% species_id -> %>
+      <%= IO.inspect(species_id, label: "the species_id") %>
+      <%= IO.inspect(@species, label: "all of the species") %>
+      <%= s = Map.get(@species, species_id) |> IO.inspect(label: "res of Map.get") %>
+      <%= IO.inspect(s.color, label: "species color here") %>
+        <td style="background-color: <%= s.color %> ; padding: 5px; margin: 5px;"></td>
     <% end %>
     <% end) %>
     </tr>
@@ -48,7 +51,10 @@ defmodule MicrocosmWeb.LiveGameView do
 
   def mount(_session, socket) do
     if connected?(socket), do: Process.send_after(self(), :tick, 1000)
-    {:ok, assign(socket, board: Game.start_game(), timestep: 700, val: Enum.random([:a, :b, :c]))}
+    %{species: species, board: board} = Game.start_game()
+
+    {:ok,
+     assign(socket, board: board, species: species, timestep: 700, val: Enum.random([:a, :b, :c]))}
   end
 
   def handle_info(:tick, socket) do
