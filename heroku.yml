@@ -1,0 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+build:
+  docker:
+    web: Dockerfile
+    worker: worker/Dockerfile
+  config:
+    MIX_ENV: prod
+release:
+  image: worker
+run:
+  web: iex -S mix phx.server
