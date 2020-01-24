@@ -8,6 +8,6 @@ build:
   config:
     MIX_ENV: prod
 release:
-  image: worker
+  image: web
 run:
   web: iex -S mix phx.server
