@@ -12,4 +12,4 @@ release:
   command:
     - echo Hello to the world
 run:
-  web: iex -S mix phx.server
+  web: _build/prod/rel/microcosm/bin/microcosm start
