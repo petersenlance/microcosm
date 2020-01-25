@@ -12,5 +12,5 @@ RUN APP_NAME="microcosm" && \
     mkdir /export && \
     cp -r _build/prod/rel/microcosm/releases/0.1/ /export
 
-ENTRYPOINT ["_build/prod/rel/microcosm/bin/microcosm"]
+ENTRYPOINT ["."]
 CMD ["_build/prod/rel/microcosm/bin/microcosm start"]
