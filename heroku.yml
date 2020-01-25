@@ -10,6 +10,6 @@ build:
 release:
   image: web
   command:
-    - MIX_ENV=prod mix ecto.migrate
+    - echo Hello to the world
 run:
   web: iex -S mix phx.server
