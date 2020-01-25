@@ -5,7 +5,6 @@ COPY . .
 RUN export MIX_ENV=prod && \
     rm -rf _build && \
     mix deps.get && \
-    mix ecto.create && \
     mix release microcosm
 
 RUN APP_NAME="microcosm" && \
