@@ -9,5 +9,7 @@ build:
     MIX_ENV: prod
 release:
   image: web
+  command:
+    - MIX_ENV=prod mix ecto.migrate
 run:
   web: iex -S mix phx.server
