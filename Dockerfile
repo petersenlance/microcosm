@@ -13,4 +13,4 @@ RUN APP_NAME="microcosm" && \
     cp -r _build/prod/rel/microcosm/releases/0.1/ /export
 
 ENTRYPOINT ["."]
-CMD ["_build/prod/rel/microcosm/bin/microcosm start"]
+CMD ["echo hello my world"]
