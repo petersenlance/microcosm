@@ -5,7 +5,6 @@
 use Mix.Config
 
 config :microcosm, Microcosm.Repo,
-  username: "postgres",
-  password: "postgres",
+  url: System.get_env("DATABASE_URL"),
   database: "microcosm_prod",
   pool_size: 15
