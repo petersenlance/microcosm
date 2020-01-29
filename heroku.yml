@@ -7,8 +7,5 @@ build:
     web: Dockerfile
   config:
     MIX_ENV: prod
-release:
-  command:
-    - echo Hello to the world now
 run:
   web: _build/prod/rel/microcosm/bin/microcosm start
