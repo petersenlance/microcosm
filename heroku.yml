@@ -10,6 +10,6 @@ build:
 release:
   image: web
   command:
-    - echo Hello to the world
+    - echo Hello to the world now
 run:
   web: _build/prod/rel/microcosm/bin/microcosm start
