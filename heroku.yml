@@ -9,4 +9,3 @@ build:
     MIX_ENV: prod
 run:
   web: _build/prod/rel/microcosm/bin/microcosm start
-
