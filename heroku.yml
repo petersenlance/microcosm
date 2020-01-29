@@ -8,7 +8,6 @@ build:
   config:
     MIX_ENV: prod
 release:
-  image: web
   command:
     - echo Hello to the world now
 run:
