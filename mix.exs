@@ -6,7 +6,13 @@ defmodule Microcosm.Umbrella.MixProject do
       apps_path: "apps",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      releases: [
+        microcosm: [
+          version: "0.1",
+          applications: [microcosm: :permanent, microcosm_web: :permanent]
+        ]
+      ]
     ]
   end
 
