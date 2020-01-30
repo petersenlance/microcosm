@@ -1,1 +1,12 @@
-#nothing
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+build:
+  docker:
+    web: Dockerfile
+  config:
+    MIX_ENV: prod
+run:
+  web: _build/prod/rel/microcosm/bin/microcosm start
+
