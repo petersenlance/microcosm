@@ -8,4 +8,4 @@ build:
   config:
     MIX_ENV: prod
 run:
-  web: bash _build/prod/rel/microcosm/bin/microcosm start
+  web: ./deploy.sh
